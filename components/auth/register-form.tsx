@@ -35,13 +35,19 @@ export const RegisterForm = () => {
 
   const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
     startTransition(() => {
-      register(values).then((result) => {
-        if ('error' in result) {
-          setError(result.error)
-        } else {
-          setSuccess(result.success)
-        }
-      })
+      register(values)
+        .then((data) => {
+          if (data.error) {
+            setError(data.error)
+          }
+
+          if (data.success) {
+            setSuccess(data.success)
+          }
+        })
+        .catch((error) => {
+          setError('An error occurred. Please try again later.')
+        })
     })
   }
 
