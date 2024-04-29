@@ -16,14 +16,25 @@ export default function Home() {
       from-green-400 to-blue-800'
     >
       <div className={'space-y-6 text-center'}>
-        <h1
-          className={cn(
-            'text-6xl font-semibold text-white drop-shadow-md',
-            font.className
-          )}
-        >
-          🔐Auth
-        </h1>
+        <div>
+          <h1
+            className={cn(
+              'text-6xl font-semibold text-white drop-shadow-md',
+              font.className
+            )}
+          >
+            MossBook
+          </h1>
+          <p
+            className={cn(
+              'text-2xl font-semibold text-white drop-shadow-md',
+              font.className
+            )}
+          >
+            Book Your Best
+          </p>
+        </div>
+
         <div>
           <LoginButton>
             <Button variant={'secondary'} size={'lg'}>
