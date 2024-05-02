@@ -70,3 +70,16 @@ export const NewPasswordSchema = z.object({
     message: 'Minimum 6 characters required',
   }),
 })
+
+export const NewEmployeeSchema = z.object({
+  name: z.string().min(1, {
+    message: 'Name is required',
+  }),
+  email: z.string().email({
+    message: 'Email is required',
+  }),
+  phone: z.string().min(1, {
+    message: 'Phone is required',
+  }),
+  role: z.enum([UserRole.ADMIN, UserRole.USER]),
+})
