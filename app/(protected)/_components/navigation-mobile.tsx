@@ -1,6 +1,11 @@
 'use client'
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { FaKey } from 'react-icons/fa6'
 import Link from 'next/link'
@@ -38,27 +43,30 @@ export const NavigationMobile = () => {
               ? 'text-accent-foreground'
               : 'text-muted-foreground'
             return (
-              <Link
-                key={title}
-                href={href}
-                className={cn(
-                  'flex items-center gap-4 px-2.5 hover:text-foreground',
-                  activeClassname
-                )}
-              >
-                {icon}
-                {title}
-              </Link>
+              <SheetClose key={title} asChild>
+                <Link
+                  href={href}
+                  className={cn(
+                    'flex items-center gap-4 px-2.5 hover:text-foreground',
+                    activeClassname
+                  )}
+                >
+                  {icon}
+                  {title}
+                </Link>
+              </SheetClose>
             )
           })}
 
-          <Link
-            href='/admin/settings'
-            className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-          >
-            <LuSettings className='h-5 w-5' />
-            Settings
-          </Link>
+          <SheetClose asChild>
+            <Link
+              href='/admin/settings'
+              className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
+            >
+              <LuSettings className='h-5 w-5' />
+              Settings
+            </Link>
+          </SheetClose>
         </nav>
       </SheetContent>
     </Sheet>

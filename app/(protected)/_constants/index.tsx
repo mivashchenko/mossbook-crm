@@ -1,4 +1,9 @@
-import { LuCalendar, LuLayoutDashboard, LuUsers } from 'react-icons/lu'
+import {
+  LuCalendar,
+  LuCoffee,
+  LuLayoutDashboard,
+  LuUsers,
+} from 'react-icons/lu'
 
 export const navigationItems = [
   {
@@ -10,6 +15,11 @@ export const navigationItems = [
     title: 'Calendar',
     icon: <LuCalendar className='h-5 w-5' />,
     href: '/admin/calendar',
+  },
+  {
+    title: 'Services',
+    icon: <LuCoffee className='h-5 w-5' />,
+    href: '/admin/services',
   },
   {
     title: 'Employees',

@@ -15,6 +15,15 @@ enum UserRole {
   ADMIN
 }
 
+enum ServiceCategory {
+  HAIR
+  NAILS
+  MAKEUP
+  WAXING
+  FACIAL
+  MASSAGE
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -97,4 +106,15 @@ model TwoFactorConfirmation {
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  price       Float
+  duration    Int
+  category    ServiceCategory
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

@@ -29,7 +29,6 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -38,7 +37,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -46,82 +44,26 @@ import {
 } from '@/components/ui/drawer'
 
 import * as React from 'react'
-import { NewEmployeeForm } from '@/app/(protected)/_components/new-employee-form'
-import { UserRole } from '@prisma/client'
-import { FormDrawerDialog } from '@/components/form-drawer-dialog'
+import { Service, UserRole } from '@prisma/client'
 import { NewServiceForm } from '@/app/(protected)/_components/new-service-form'
+import { FormDrawerDialog } from '@/components/form-drawer-dialog'
 
-export function DrawerDialogDemo() {
-  const [open, setOpen] = React.useState(false)
-  const isDesktop = useMediaQuery('(min-width: 768px)')
-
-  if (isDesktop) {
-    return (
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button variant='outline'>Add employee</Button>
-        </DialogTrigger>
-        <DialogContent className='sm:max-w-[425px]'>
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              {
-                "Make changes to your profile here. Click save when you're done."
-              }
-            </DialogDescription>
-          </DialogHeader>
-          <NewEmployeeForm />
-        </DialogContent>
-      </Dialog>
-    )
-  }
-
-  return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant='outline'>Add employee</Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader className='text-left'>
-          <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>
-            {"Make changes to your profile here. Click save when you're done."}
-          </DrawerDescription>
-        </DrawerHeader>
-        <NewEmployeeForm className={'px-4'} />
-        <DrawerFooter className='pt-2'>
-          <DrawerClose asChild>
-            <Button variant='outline'>Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
-  )
-}
-
-export const EmployeeList = ({
-  employees,
+export const ServiceList = ({
+  services,
   count,
 }: {
   count: number
-  employees: {
-    id: string
-    name: string | null
-    email: string | null
-    phone: string | null
-    image: string | null
-    role: UserRole
-  }[]
+  services: Service[]
 }) => {
   return (
     <Card>
       <CardHeader>
         <CardTitle className={'flex items-center justify-between'}>
-          Employees{' '}
+          Services{' '}
           <FormDrawerDialog
-            title={'Employees'}
-            button={<Button variant='outline'>Add employee</Button>}
-            form={<NewEmployeeForm />}
+            title={'Services'}
+            button={<Button variant='outline'>Add service</Button>}
+            form={<NewServiceForm />}
           />
         </CardTitle>
       </CardHeader>
@@ -130,29 +72,28 @@ export const EmployeeList = ({
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Description</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Duration</TableHead>
+              <TableHead>Category</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {employees.map((employee) => {
+            {services.map((employee) => {
               return (
                 <TableRow key={employee.id}>
+                  <TableCell className='font-medium'>{employee.name}</TableCell>
                   <TableCell className='font-medium'>
-                    <div className={'flex items-center'}>
-                      <div className={'flex flex-col'}>
-                        <div className={'mb-1 text-sm'}>{employee.name}</div>
-                        <div className={'mb-1 text-xs text-gray-500'}>
-                          {employee.email}
-                        </div>
-                        <div className={'mb-1 text-xs text-gray-500'}>
-                          {employee.phone}
-                        </div>
-                      </div>
-                    </div>
+                    {employee.description}
+                  </TableCell>
+                  <TableCell className='font-medium'>
+                    {employee.price}
+                  </TableCell>
+                  <TableCell className='font-medium'>
+                    {employee.duration}
                   </TableCell>
                   <TableCell>
-                    <Badge variant='outline'>{employee.role}</Badge>
+                    <Badge variant='outline'>{employee.category}</Badge>
                   </TableCell>
                   <TableCell>
                     <DropdownMenu>

@@ -1,5 +1,5 @@
 import * as z from 'zod'
-import { UserRole } from '@prisma/client'
+import { ServiceCategory, UserRole } from '@prisma/client'
 
 export const SettingsSchema = z
   .object({
@@ -82,4 +82,25 @@ export const NewEmployeeSchema = z.object({
     message: 'Phone is required',
   }),
   role: z.enum([UserRole.ADMIN, UserRole.USER]),
+})
+
+export const NewServiceSchema = z.object({
+  name: z.string().min(1, {
+    message: 'Name is required',
+  }),
+  price: z.string().min(1, {
+    message: 'Price is required',
+  }),
+  duration: z.string().min(1, {
+    message: 'Duration is required',
+  }),
+  description: z.optional(z.string()),
+  category: z.enum([
+    ServiceCategory.HAIR,
+    ServiceCategory.NAILS,
+    ServiceCategory.MASSAGE,
+    ServiceCategory.FACIAL,
+    ServiceCategory.WAXING,
+    ServiceCategory.MAKEUP,
+  ]),
 })
