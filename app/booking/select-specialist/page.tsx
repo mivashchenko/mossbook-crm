@@ -3,11 +3,7 @@ import { getEmployees } from '@/data/employees'
 
 const BookingSpecialistPage = async () => {
   const response = await getEmployees()
-  return (
-    <div>
-      <BookingSelectSpecialist specialists={response.data} />
-    </div>
-  )
+  return <BookingSelectSpecialist specialists={response.data} />
 }
 
 export default BookingSpecialistPage

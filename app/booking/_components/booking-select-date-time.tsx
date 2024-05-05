@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { Employee } from '@/types'
 import { newBookingActions } from '@/lib/features/new-booking/new-booking.slice'
 import { useRouter } from 'next/navigation'
+import { BookingRedirectButtons } from '@/app/booking/_components/booking-redirect-buttons'
 
 export const BookingSelectDateTime = () => {
   const router = useRouter()
@@ -54,14 +55,7 @@ export const BookingSelectDateTime = () => {
         </div>
       </div>
       <div className={'mt-8'}>
-        <Button
-          disabled={!selectedDate}
-          onClick={() => {
-            router.push('/booking/select-services')
-          }}
-        >
-          Select services
-        </Button>
+        <BookingRedirectButtons />
       </div>
     </div>
   )
