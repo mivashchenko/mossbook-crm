@@ -38,11 +38,17 @@ export const BookingSelectServices = ({
       {services.map((service) => {
         const selected = selectedServices.some((s) => s.id === service.id)
         return (
-          <Card className={'mb-2 p-4'}>
+          <Card key={service.id} className={'mb-2 p-4'}>
             <div>
               <div className={'flex items-center justify-between'}>
-                <div className={'flex items-center'}>
+                <div className={'flex flex-col items-start'}>
                   <div className={'ml-2 font-semibold'}>{service.name}</div>
+                  <div className={'ml-2 font-semibold'}>
+                    price: ${service.price}
+                  </div>
+                  <div className={'ml-2 font-semibold'}>
+                    duration: {service.price} min
+                  </div>
                 </div>
                 <Button
                   onClick={toggleSelect(service)}

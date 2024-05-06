@@ -1,7 +1,17 @@
+'use client'
+
 import { Poppins } from 'next/font/google'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { LoginButton } from '@/components/auth/login-button'
+import Navbar from '@/components/landing/navbar'
+import Hero from '@/components/landing/hero'
+import SectionTitle from '@/components/landing/sectionTitle'
+import Benefits from '@/components/landing/benefits'
+import Video from '@/components/landing/video'
+import Testimonials from '@/components/landing/testimonials'
+import Faq from '@/components/landing/faq'
+import Cta from '@/components/landing/cta'
+import Footer from '@/components/landing/footer'
+import PopupWidget from '@/components/landing/popupWidget'
+import { benefitOne, benefitTwo } from '@/components/landing/data'
 
 const font = Poppins({
   subsets: ['latin'],
@@ -10,39 +20,44 @@ const font = Poppins({
 
 export default function Home() {
   return (
-    <main
-      className='flex h-full flex-col items-center justify-center
-     bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
-      from-green-400 to-blue-800'
-    >
-      <div className={'space-y-6 text-center'}>
-        <div>
-          <h1
-            className={cn(
-              'text-6xl font-semibold text-white drop-shadow-md',
-              font.className
-            )}
-          >
-            MossBook
-          </h1>
-          <p
-            className={cn(
-              'text-2xl font-semibold text-white drop-shadow-md',
-              font.className
-            )}
-          >
-            Book Your Best
-          </p>
-        </div>
-
-        <div>
-          <LoginButton>
-            <Button variant={'secondary'} size={'lg'}>
-              Sign In
-            </Button>
-          </LoginButton>
-        </div>
-      </div>
+    <main>
+      <Navbar />
+      <Hero />
+      <SectionTitle
+        pretitle='Nextly Benefits'
+        title=' Why should you use this landing page'
+      >
+        Nextly is a free landing page & marketing website template for startups
+        and indie projects. Its built with Next.js & TailwindCSS. And its
+        completely open-source.
+      </SectionTitle>
+      <Benefits data={benefitOne} />
+      <Benefits imgPos='right' data={benefitTwo} />
+      <SectionTitle
+        pretitle='Watch a video'
+        title='Learn how to fullfil your needs'
+      >
+        This section is to highlight a promo or demo video of your product.
+        Analysts says a landing page with video has 3% more conversion rate. So,
+        don&apos;t forget to add one. Just like this.
+      </SectionTitle>
+      <Video />
+      <SectionTitle
+        pretitle='Testimonials'
+        title="Here's what our customers said"
+      >
+        Testimonails is a great way to increase the brand trust and awareness.
+        Use this section to highlight your popular customers.
+      </SectionTitle>
+      <Testimonials />
+      <SectionTitle pretitle='FAQ' title='Frequently Asked Questions'>
+        Answer your customers possible questions here, it will increase the
+        conversion rate as well as support or chat requests.
+      </SectionTitle>
+      <Faq />
+      <Cta />
+      <Footer />
+      <PopupWidget />
     </main>
   )
 }

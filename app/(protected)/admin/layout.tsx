@@ -17,6 +17,7 @@ import { MdOutlineSettings } from 'react-icons/md'
 import { Navigation } from '@/app/(protected)/_components/navigation'
 import { NavigationMobile } from '@/app/(protected)/_components/navigation-mobile'
 import { ButtonSettings } from '@/app/(protected)/_components/button-settings'
+import { ThemeModeToggle } from '@/components/theme-mode-toggler'
 
 export default function ProtectedLayout({ children }: { children: ReactNode }) {
   return (
@@ -36,7 +37,10 @@ export default function ProtectedLayout({ children }: { children: ReactNode }) {
         <div className='flex flex-col sm:gap-4 sm:py-4 sm:pl-14'>
           <header className='sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6'>
             <NavigationMobile />
-            <div className='ml-auto'>
+            <div className='ml-auto flex items-center'>
+              <div className={'mr-2'}>
+                <ThemeModeToggle />
+              </div>
               <UserButton />
             </div>
           </header>

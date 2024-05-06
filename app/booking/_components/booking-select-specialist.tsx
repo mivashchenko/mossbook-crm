@@ -35,7 +35,7 @@ export const BookingSelectSpecialist = ({
         router.push('/booking/select-date-time')
       }
     },
-    [dispatch, router]
+    [dispatch, hasDate, hasServices, router]
   )
   return (
     <div>
