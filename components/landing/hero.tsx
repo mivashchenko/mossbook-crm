@@ -20,8 +20,8 @@ const Hero = () => {
 
             <div className='flex flex-col items-start space-y-3 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0'>
               <LoginButton>
-                <Button variant={'default'} size={'lg'}>
-                  Sign In
+                <Button size={'lg'} variant={'default'}>
+                  Try for free
                 </Button>
               </LoginButton>
             </div>
@@ -43,9 +43,8 @@ const Hero = () => {
       </Container>
       <Container>
         <div className='flex flex-col justify-center'>
-          <div className='text-center text-xl text-gray-700 dark:text-white'>
-            Trusted by <span className='text-indigo-600'>2000+</span> customers
-            worldwide
+          <div className='text-center text-xl'>
+            Trusted by <span className=''>2000+</span> customers worldwide
           </div>
 
           <div className='mt-10 flex flex-wrap justify-center gap-5 md:justify-around'>

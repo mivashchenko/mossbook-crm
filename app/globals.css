@@ -4,6 +4,7 @@
 
 html, body, :root {
   height: 100%;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 @layer base {
@@ -17,7 +18,7 @@ html, body, :root {
       --popover: 0 0% 100%;
       --popover-foreground: 222.2 84% 4.9%;
 
-      --primary: 222.2 47.4% 11.2%;
+      --primary: 68, 80%, 8%;
       --primary-foreground: 210 40% 98%;
 
       --secondary: 210 40% 96.1%;
@@ -49,7 +50,7 @@ html, body, :root {
       --popover: 222.2 84% 4.9%;
       --popover-foreground: 210 40% 98%;
 
-      --primary: 210 40% 98%;
+      --primary: 36, 15%, 87%;
       --primary-foreground: 222.2 47.4% 11.2%;
 
       --secondary: 217.2 32.6% 17.5%;

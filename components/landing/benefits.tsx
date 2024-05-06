@@ -30,7 +30,7 @@ const Benefits = (props: BenefitsProps) => {
           <div>
             <Image
               src={data.image}
-              width='521'
+              width='616'
               alt='Benefits'
               className={'object-cover'}
               placeholder='blur'

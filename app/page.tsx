@@ -22,9 +22,9 @@ export default function Home() {
   return (
     <main
       className={cn(
-        '',
+        ''
         // 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#202404] to-[#e3dfd9]',
-        font.className
+        // font.className
       )}
     >
       <Navbar />

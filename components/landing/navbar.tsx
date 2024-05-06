@@ -87,13 +87,12 @@ const Navbar = () => {
         </div>
 
         <div className='nav__item mr-3 hidden space-x-4 lg:flex'>
+          <ThemeChanger />
           <LoginButton>
-            <Button variant={'secondary'} size={'lg'}>
+            <Button variant={'default'} size={'lg'}>
               Sign In
             </Button>
           </LoginButton>
-
-          <ThemeChanger />
         </div>
       </nav>
     </div>

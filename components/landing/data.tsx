@@ -1,4 +1,4 @@
-import benefitOneImg from '/public/img/benefit-one.png'
+import benefitOneImg from '/public/img/benefit-one.jpg'
 import benefitTwoImg from '/public/img/benefit-two.png'
 import { LuSun } from 'react-icons/lu'
 
