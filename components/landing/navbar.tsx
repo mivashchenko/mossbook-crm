@@ -16,14 +16,14 @@ const Navbar = () => {
             <>
               <div className='flex w-full flex-wrap items-center justify-between lg:w-auto'>
                 <Link href='/'>
-                  <span className='flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100'>
-                    <span>MossBook</span>
+                  <span className='flex items-center space-x-2 text-2xl font-medium drop-shadow-md'>
+                    <span>Mossbook</span>
                   </span>
                 </Link>
 
                 <Disclosure.Button
                   aria-label='Toggle Menu'
-                  className='dark:focus:bg-trueGray-700 ml-auto rounded-md px-2 py-1 text-gray-500 hover:text-indigo-500 focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none dark:text-gray-300 lg:hidden'
+                  className='dark:focus:bg-trueGray-700 ml-auto rounded-md px-2 py-1 text-[#202404] hover:text-[#202404] focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none dark:text-gray-300 lg:hidden'
                 >
                   <svg
                     className='h-6 w-6 fill-current'
@@ -62,6 +62,7 @@ const Navbar = () => {
                         Sign In
                       </Button>
                     </LoginButton>
+                    <ThemeChanger />
                   </>
                 </Disclosure.Panel>
               </div>

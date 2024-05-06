@@ -3,46 +3,46 @@ import benefitTwoImg from '/public/img/benefit-two.png'
 import { LuSun } from 'react-icons/lu'
 
 const benefitOne = {
-  title: 'Highlight your benefits',
-  desc: 'You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.',
+  title: 'Revolutionize Your Salon Management with Our Custom CRM',
+  desc: 'Streamline operations and enhance customer relationships with these benefits:',
   image: benefitOneImg,
   bullets: [
     {
-      title: 'Understand your customers',
-      desc: 'Then explain the first point breifly in one or two lines.',
+      title: 'Effortless Online Booking System:',
+      desc: 'Automate appointments with a chatbot or website, allowing clients to book at their convenience.',
       icon: <LuSun />,
     },
     {
-      title: 'Improve acquisition',
-      desc: 'Here you can add the next benefit point.',
+      title: 'Revenue & Expense Analytics, P&L:',
+      desc: 'Track profits and expenses with comprehensive reports to optimize your business performance.',
       icon: <LuSun />,
     },
     {
-      title: 'Drive customer retention',
-      desc: 'This will be your last bullet point in this section.',
+      title: 'Enhanced Client Database Management:',
+      desc: 'Leverage client data for strategic marketing campaigns and improved customer engagement.',
       icon: <LuSun />,
     },
   ],
 }
 
 const benefitTwo = {
-  title: 'Offer more benefits here',
+  title: 'Empower Your Business with Comprehensive Management Tools',
   desc: 'You can use this same layout with a flip image to highlight your rest of the benefits of your product. It can also contain an image or Illustration as above section along with some bullet points.',
   image: benefitTwoImg,
   bullets: [
     {
-      title: 'Mobile Responsive Template',
-      desc: 'Nextly is designed as a mobile first responsive template.',
+      title: 'Booking Calendar & Reports:',
+      desc: 'Easily track appointments and employee availability while gaining real-time insights into monthly performance.',
       icon: <LuSun />,
     },
     {
-      title: 'Powered by Next.js & TailwindCSS',
-      desc: 'This template is powered by latest technologies and tools.',
+      title: 'Recover Lost Clients:',
+      desc: 'Re-engage past clients with targeted marketing, reminders, and strategic re-engagement campaigns.',
       icon: <LuSun />,
     },
     {
-      title: 'Dark & Light Mode',
-      desc: 'Nextly comes with a zero-config light & dark mode. ',
+      title: 'Inventory, Sales, & Consumables Accounting:',
+      desc: 'Manage your inventory efficiently, streamline sales, and track consumables for a seamless supply chain.',
       icon: <LuSun />,
     },
   ],

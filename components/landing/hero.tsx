@@ -10,10 +10,10 @@ const Hero = () => {
       <Container className='flex flex-wrap '>
         <div className='flex w-full items-center lg:w-1/2'>
           <div className='mb-8 max-w-2xl'>
-            <h1 className='text-4xl font-bold leading-snug tracking-tight text-gray-800 dark:text-white lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight'>
+            <h1 className='text-4xl font-bold leading-snug tracking-tight drop-shadow-md lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight'>
               CRM for managing a service business
             </h1>
-            <p className='py-5 text-xl leading-normal text-gray-500 dark:text-gray-300 lg:text-xl xl:text-2xl'>
+            <p className='py-5 text-xl leading-normal drop-shadow-md lg:text-xl xl:text-2xl'>
               Empower your salon with seamless online client booking,
               comprehensive revenue analytics, and smart inventory management.
             </p>
@@ -33,8 +33,8 @@ const Hero = () => {
               src={heroImg}
               width='616'
               height='617'
-              className={'object-cover'}
-              alt='Hero Illustration'
+              className={'rounded-lg object-cover drop-shadow-lg'}
+              alt='Hero image'
               loading='eager'
               placeholder='blur'
             />
