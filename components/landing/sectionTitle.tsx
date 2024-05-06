@@ -16,7 +16,7 @@ const SectionTitle = (props: SectionTitleProps) => {
       }`}
     >
       {props.pretitle && (
-        <div className='text-sm font-bold uppercase tracking-wider text-indigo-600'>
+        <div className='text-sm font-bold uppercase tracking-wider'>
           {props.pretitle}
         </div>
       )}

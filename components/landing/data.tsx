@@ -1,6 +1,13 @@
 import benefitOneImg from '/public/img/benefit-one.jpg'
 import benefitTwoImg from '/public/img/benefit-two.png'
-import { LuSun } from 'react-icons/lu'
+import { LuCalendarCheck2 } from 'react-icons/lu'
+import {
+  FaClipboardList,
+  FaPersonWalkingArrowLoopLeft,
+  FaRegHandPointer,
+} from 'react-icons/fa6'
+import { GiProfit } from 'react-icons/gi'
+import { BsDatabaseCheck } from 'react-icons/bs'
 
 const benefitOne = {
   title: 'Revolutionize Your Salon Management with Our Custom CRM',
@@ -10,17 +17,17 @@ const benefitOne = {
     {
       title: 'Effortless Online Booking System:',
       desc: 'Automate appointments with a chatbot or website, allowing clients to book at their convenience.',
-      icon: <LuSun />,
+      icon: <FaRegHandPointer />,
     },
     {
       title: 'Revenue & Expense Analytics, P&L:',
       desc: 'Track profits and expenses with comprehensive reports to optimize your business performance.',
-      icon: <LuSun />,
+      icon: <GiProfit />,
     },
     {
       title: 'Enhanced Client Database Management:',
       desc: 'Leverage client data for strategic marketing campaigns and improved customer engagement.',
-      icon: <LuSun />,
+      icon: <BsDatabaseCheck />,
     },
   ],
 }
@@ -33,17 +40,17 @@ const benefitTwo = {
     {
       title: 'Booking Calendar & Reports:',
       desc: 'Easily track appointments and employee availability while gaining real-time insights into monthly performance.',
-      icon: <LuSun />,
+      icon: <LuCalendarCheck2 />,
     },
     {
       title: 'Recover Lost Clients:',
       desc: 'Re-engage past clients with targeted marketing, reminders, and strategic re-engagement campaigns.',
-      icon: <LuSun />,
+      icon: <FaPersonWalkingArrowLoopLeft />,
     },
     {
       title: 'Inventory, Sales, & Consumables Accounting:',
       desc: 'Manage your inventory efficiently, streamline sales, and track consumables for a seamless supply chain.',
-      icon: <LuSun />,
+      icon: <FaClipboardList />,
     },
   ],
 }

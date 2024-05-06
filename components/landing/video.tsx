@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import Container from '@/components/landing/container'
+import { Card } from '@/components/ui/card'
 
 const Video = () => {
   const [playVideo, setPlayVideo] = useState(false)
   return (
     <Container>
       <div className='mx-auto w-full max-w-4xl overflow-hidden rounded-2xl lg:mb-20 '>
-        <div
+        <Card
           onClick={() => setPlayVideo(!playVideo)}
-          className='aspect-w-16 aspect-h-9 relative cursor-pointer bg-indigo-300 bg-gradient-to-tr from-purple-400 to-indigo-700'
+          className='aspect-w-16 aspect-h-9 relative cursor-pointer'
         >
           {!playVideo && (
             <button className='absolute inset-auto left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform text-white lg:h-28 lg:w-28'>
@@ -29,14 +30,16 @@ const Video = () => {
           )}
           {playVideo && (
             <iframe
-              src='https://www.youtube-nocookie.com/embed/aOq49euWnIo?controls=0&autoplay=1'
+              width='560'
+              height='315'
+              src='https://www.youtube.com/embed/QqpkJ1zVeTQ?si=hJF1e6-I8BE11Mhe'
               title='YouTube video player'
-              frameBorder='0'
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerPolicy='strict-origin-when-cross-origin'
               allowFullScreen
             ></iframe>
           )}
-        </div>
+        </Card>
       </div>
     </Container>
   )

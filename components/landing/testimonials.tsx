@@ -5,53 +5,56 @@ import Container from '@/components/landing/container'
 import userOneImg from '/public/img/user1.jpg'
 import userTwoImg from '/public/img/user2.jpg'
 import userThreeImg from '/public/img/user3.jpg'
+import { Card } from '@/components/ui/card'
 
 const Testimonials = () => {
   return (
     <Container>
       <div className='grid gap-10 lg:grid-cols-2 xl:grid-cols-3'>
         <div className='lg:col-span-2 xl:col-auto'>
-          <div className='dark:bg-trueGray-800 flex h-full w-full flex-col justify-between rounded-2xl bg-gray-100 px-14 py-14'>
-            <p className='text-2xl leading-normal '>
-              Share a real <Mark>testimonial</Mark>
-              that hits some of your benefits from one of your popular customer.
+          <Card className='flex h-full w-full flex-col justify-between rounded-2xl  px-14 py-14'>
+            <p className='text-xl leading-normal '>
+              I was able to quickly figure out the functionality of Mossbook
+              because the program is <Mark>simple</Mark> and{' '}
+              <Mark>intuitive</Mark>. I always recommend Mossbook to everyone –
+              it simplifies the work of a professional and saves a lot of time.
             </p>
 
             <Avatar
               image={userOneImg}
               name='Sarah Steiner'
-              title='VP Sales at Google'
+              title='Cosmetologist'
             />
-          </div>
+          </Card>
         </div>
-        <div className=''>
-          <div className='dark:bg-trueGray-800 flex h-full w-full flex-col justify-between rounded-2xl bg-gray-100 px-14 py-14'>
-            <p className='text-2xl leading-normal '>
-              Make sure you only pick the <Mark>right sentence</Mark>
-              to keep it short and simple.
+        <Card className=''>
+          <div className=' flex h-full w-full flex-col justify-between rounded-2xl px-14 py-14'>
+            <p className='text-xl leading-normal '>
+              The most useful feature for me is the{' '}
+              <Mark>automatic reminders</Mark> to clients about their
+              appointments. Overall, Mossbook has streamlined my work and
+              elevated me as a professional to a new level.
             </p>
 
-            <Avatar
-              image={userTwoImg}
-              name='Dylan Ambrose'
-              title='Lead marketer at Netflix'
-            />
+            <Avatar image={userTwoImg} name='Dylan Ambrose' title='Barber' />
           </div>
-        </div>
-        <div className=''>
-          <div className='dark:bg-trueGray-800 flex h-full w-full flex-col justify-between rounded-2xl bg-gray-100 px-14 py-14'>
-            <p className='text-2xl leading-normal '>
-              This is an <Mark>awesome</Mark> landing page template I&apos;ve
-              seen. I would use this for anything.
+        </Card>
+        <Card className=''>
+          <div className='flex h-full w-full flex-col justify-between rounded-2xl px-14 py-14'>
+            <p className='text-xl leading-normal '>
+              Mossbook provides <Mark>insights</Mark> into the numbers for new
+              and returning clients, average checks, and daily totals. Many
+              clients have also mentioned that our early appointment reminders
+              are helpful to them.
             </p>
 
             <Avatar
               image={userThreeImg}
               name='Gabrielle Winn'
-              title='Co-founder of Acme Inc'
+              title='Nail Master'
             />
           </div>
-        </div>
+        </Card>
       </div>
     </Container>
   )
@@ -91,7 +94,7 @@ function Mark(props: MarkProps) {
   return (
     <>
       {' '}
-      <mark className='rounded-md bg-indigo-100 text-indigo-800 ring-4 ring-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 dark:ring-indigo-900'>
+      <mark className='rounded-md bg-[#c8d48b] ring-4 ring-[#c8d48b]'>
         {props.children}
       </mark>{' '}
     </>

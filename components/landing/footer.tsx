@@ -15,23 +15,18 @@ export default function Footer() {
               {' '}
               <Link
                 href='/'
-                className='flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100'
+                className='flex items-center space-x-2 text-2xl font-medium'
               >
-                <Image
-                  src='/img/logo.svg'
-                  alt='N'
-                  width='32'
-                  height='32'
-                  className='w-8'
-                />
-                <span>Nextly</span>
+                <span>Mossbook</span>
               </Link>
             </div>
 
             <div className='mt-4 max-w-md text-gray-500 dark:text-gray-400'>
-              Nextly is a free landing page & marketing website template for
-              startups and indie projects. Its built with Next.js & TailwindCSS.
-              And its completely open-source.
+              is a SaaS (Software as a Service) application designed for small
+              service-based businesses in the beauty and wellness industry. It
+              offers a comprehensive platform to streamline operations such as
+              online booking, payment processing, inventory management, and
+              employee management.
             </div>
 
             <div className='mt-5'>
