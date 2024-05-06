@@ -1,12 +1,21 @@
 'use client'
-import { Calendar, Views, View, dateFnsLocalizer } from 'react-big-calendar'
+import {
+  Calendar,
+  Views,
+  View,
+  dateFnsLocalizer,
+  ToolbarProps,
+} from 'react-big-calendar'
 import { useMemo } from 'react'
-import format from 'date-fns/format'
+import { format } from 'date-fns'
 import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
 import enUS from 'date-fns/locale/en-US'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 const locales = {
   'en-US': enUS,
@@ -60,8 +69,25 @@ const resourceMap = [
 ]
 
 export const BigCalendar = () => {
-  const { defaultDate, views } = useMemo(
+  const { defaultDate, views, components } = useMemo(
     () => ({
+      components: {
+        toolbar: (props: ToolbarProps) => {
+          return (
+            <Card className={'mb-4'}>
+              <CardHeader>{format(props.date, 'dd MMM')}</CardHeader>
+              <CardContent>
+                <Button size={'icon'} className={'mr-1'}>
+                  <LuChevronLeft />
+                </Button>
+                <Button size={'icon'}>
+                  <LuChevronRight />
+                </Button>
+              </CardContent>
+            </Card>
+          )
+        },
+      },
       defaultDate: new Date(2018, 0, 29),
       views: ['day', 'work_week'] as View[],
     }),
@@ -73,6 +99,7 @@ export const BigCalendar = () => {
       <Calendar
         defaultDate={defaultDate}
         defaultView={Views.DAY}
+        components={components}
         events={events}
         resourceIdAccessor='employeeId'
         resources={resourceMap}
