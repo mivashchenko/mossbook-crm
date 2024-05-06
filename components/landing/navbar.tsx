@@ -23,7 +23,7 @@ const Navbar = () => {
 
                 <Disclosure.Button
                   aria-label='Toggle Menu'
-                  className='dark:focus:bg-trueGray-700 ml-auto rounded-md px-2 py-1 text-[#202404] hover:text-[#202404] focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none dark:text-gray-300 lg:hidden'
+                  className='ml-auto rounded-md px-2 py-1 focus:outline-none lg:hidden'
                 >
                   <svg
                     className='h-6 w-6 fill-current'

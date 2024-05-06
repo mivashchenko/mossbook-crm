@@ -12,7 +12,7 @@ const Video = () => {
           className='aspect-w-16 aspect-h-9 relative cursor-pointer'
         >
           {!playVideo && (
-            <button className='absolute inset-auto left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform text-white lg:h-28 lg:w-28'>
+            <button className='absolute inset-auto left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform lg:h-28 lg:w-28'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-16 w-16  lg:h-28 lg:w-28'
