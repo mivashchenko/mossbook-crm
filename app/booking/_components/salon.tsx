@@ -3,12 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { namePlateColors, nameToInitials } from '@/utils'
 import { cn } from '@/lib/utils'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { LuArrowLeft } from 'react-icons/lu'
 import Link from 'next/link'
@@ -17,7 +12,7 @@ export const Salon = ({
   className,
   backUrl,
 }: {
-  className: string
+  className?: string
   backUrl?: string
 }) => {
   return (

@@ -12,11 +12,7 @@ export const SettingsSchema = z
   })
   .refine(
     (data) => {
-      if (data.password && !data.newPassword) {
-        return false
-      }
-
-      return true
+      return !(data.password && !data.newPassword)
     },
     {
       message: 'New password is required',
@@ -25,11 +21,7 @@ export const SettingsSchema = z
   )
   .refine(
     (data) => {
-      if (data.newPassword && !data.password) {
-        return false
-      }
-
-      return true
+      return !(data.newPassword && !data.password)
     },
     {
       message: 'Password is required',
@@ -103,4 +95,24 @@ export const NewServiceSchema = z.object({
     ServiceCategory.WAXING,
     ServiceCategory.MAKEUP,
   ]),
+})
+
+export const NewBookingSchema = z.object({
+  date: z.string(),
+  time: z.string(),
+  specialistId: z.string(),
+  serviceId: z.string(),
+  userId: z.string(),
+})
+
+export const NewCustomerSchema = z.object({
+  name: z.string().min(1, {
+    message: 'Name is required',
+  }),
+  email: z.string().email({
+    message: 'Email is required',
+  }),
+  phone: z.string().min(1, {
+    message: 'Phone is required',
+  }),
 })
