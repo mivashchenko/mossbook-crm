@@ -1,5 +1,5 @@
 'use client'
-import { addDays, setHours, startOfDay } from 'date-fns'
+import { addDays, getTime, setHours, startOfDay } from 'date-fns'
 
 import { Calendar } from '@/components/ui/calendar'
 import { useCallback, useState } from 'react'
@@ -25,7 +25,8 @@ export const BookingSelectDateTime = () => {
 
   const timeSlots = generateTimeSlots(startDate, endDate, interval)
 
-  console.log(selectedDate)
+  const isTimeSlotSelected = (timeSlot: Date) =>
+    selectedDate && getTime(selectedDate) === getTime(timeSlot)
   return (
     <div className={'flex flex-col items-center justify-center'}>
       <Calendar
@@ -43,7 +44,7 @@ export const BookingSelectDateTime = () => {
           {timeSlots.map((slot, index) => (
             <Button
               className={'w-[100px]'}
-              variant={'outline'}
+              variant={isTimeSlotSelected(slot) ? 'default' : 'outline'}
               key={index}
               onClick={() => {
                 dispatch(newBookingActions.setDate(slot.toISOString()))

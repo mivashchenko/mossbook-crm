@@ -33,10 +33,20 @@ export const BookingSelectSpecialist = ({
         router.push('/booking/select-services')
       } else if (!hasDate) {
         router.push('/booking/select-date-time')
+      } else {
+        router.push('/booking/confirm')
       }
     },
-    [dispatch, hasDate, hasServices, router]
+    [dispatch, router, hasServices, hasDate]
   )
+
+  const handleTimeSlotClicked = useCallback(
+    (date: Date | null) => {
+      dispatch(newBookingActions.setDate(date))
+    },
+    [dispatch]
+  )
+
   return (
     <div>
       <Salon className={'mb-4'} backUrl={'/booking'} />
@@ -44,15 +54,19 @@ export const BookingSelectSpecialist = ({
       <h3 className='mb-2 scroll-m-20 text-xl font-semibold tracking-tight'>
         Select specialist
       </h3>
-      {specialists.map((specialist) => {
-        return (
-          <SelectSpecialistCard
-            key={specialist.id}
-            specialist={specialist}
-            onSelect={handleSelect(specialist)}
-          />
-        )
-      })}
+      <div className={''}>
+        {specialists.map((specialist) => {
+          return (
+            <SelectSpecialistCard
+              key={specialist.id}
+              specialist={specialist}
+              selectedTimeSlot={date}
+              onSelect={handleSelect(specialist)}
+              onTimeSlotClick={handleTimeSlotClicked}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }

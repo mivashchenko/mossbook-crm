@@ -52,7 +52,7 @@ export const BookingRedirectButtons = () => {
   ]
 
   return (
-    <div className={'gap-1 p-2'}>
+    <div className={'flex gap-2 p-2'}>
       {buttons
         .filter((btn) => {
           return btn.show

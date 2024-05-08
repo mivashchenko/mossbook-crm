@@ -1,7 +1,20 @@
 import { Button } from '@/components/ui/button'
-import { format } from 'date-fns'
+import { format, getTime } from 'date-fns'
 
-export const TimeSlotsList = ({ slots }: { slots: Date[] }) => {
+interface TimeSlotsListProps {
+  slots: Date[]
+  onTimeSlotClick: (timeSlot: Date | null) => void
+  selectedTimeSlot?: Date | null
+}
+
+export const TimeSlotsList = ({
+  slots,
+  onTimeSlotClick,
+  selectedTimeSlot,
+}: TimeSlotsListProps) => {
+  const isTimeSlotSelected = (timeSlot: Date) =>
+    selectedTimeSlot && getTime(selectedTimeSlot) === getTime(timeSlot)
+
   return (
     <div
       className={
@@ -9,7 +22,14 @@ export const TimeSlotsList = ({ slots }: { slots: Date[] }) => {
       }
     >
       {slots.map((slot, index) => (
-        <Button className={'w-[100px]'} variant={'outline'} key={index}>
+        <Button
+          className={'w-[100px]'}
+          variant={isTimeSlotSelected(slot) ? 'default' : 'outline'}
+          key={index}
+          onClick={() =>
+            onTimeSlotClick(isTimeSlotSelected(slot) ? null : slot)
+          }
+        >
           {format(slot, 'p')}
         </Button>
       ))}

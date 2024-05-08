@@ -8,19 +8,38 @@ import { setHours, startOfDay } from 'date-fns'
 import { generateTimeSlots } from '@/utils'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { newBookingActions } from '@/lib/features/new-booking/new-booking.slice'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+
+interface SelectSpecialistCardProps {
+  specialist: Employee
+  onSelect: () => void
+  onTimeSlotClick: (date: Date | null) => void
+  selectedTimeSlot?: Date | null
+}
 
 export const SelectSpecialistCard = ({
   specialist,
   onSelect,
-}: {
-  specialist: Employee
-  onSelect: () => void
-}) => {
+  onTimeSlotClick,
+  selectedTimeSlot,
+}: SelectSpecialistCardProps) => {
+  const {
+    specialist: selectedSpecialist,
+    date,
+    services,
+  } = useAppSelector((state) => state.newBooking)
+  const dispatch = useAppDispatch()
   const startDate = setHours(startOfDay(new Date()), 9)
   const endDate = setHours(startDate, 18)
   const interval = 60
 
   const timeSlots = generateTimeSlots(startDate, endDate, interval)
+
+  const handleTimeSlotClicked = (date: Date | null) => {
+    dispatch(newBookingActions.setSpecialist(specialist))
+    onTimeSlotClick(date)
+  }
 
   return (
     <Card className='m-3 mx-auto max-w-md  md:max-w-2xl'>
@@ -56,7 +75,15 @@ export const SelectSpecialistCard = ({
             <span className={'text-sky-500'}>tomorrow</span>:
           </p>
           <div>
-            <TimeSlotsList slots={timeSlots} />
+            <TimeSlotsList
+              selectedTimeSlot={
+                selectedSpecialist?.id === specialist.id
+                  ? selectedTimeSlot
+                  : null
+              }
+              slots={timeSlots}
+              onTimeSlotClick={handleTimeSlotClicked}
+            />
           </div>
           <div>
             <Button onClick={onSelect} className={'mt-6'}>
