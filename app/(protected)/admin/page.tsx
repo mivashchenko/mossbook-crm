@@ -1,5 +1,7 @@
+import { Dashboard } from '@/app/(protected)/_components/dashboard'
+
 const AdminPage = () => {
-  return <div>Dashboard</div>
+  return <Dashboard />
 }
 
 export default AdminPage
