@@ -14,12 +14,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { namePlateColors, nameToInitials } from '@/utils'
 import { format } from 'date-fns'
 
-export const BookingList = () => {
-  const selectedSpecialist = useAppSelector(
-    (state) => state.newBooking.specialist
+export const BookingMenu = () => {
+  const { specialist, date, services } = useAppSelector(
+    (state) => state.newBooking
   )
-
-  const selectedDate = useAppSelector((state) => state.newBooking.date)
 
   const actionItems = [
     {
@@ -27,10 +25,10 @@ export const BookingList = () => {
       name: 'Specialist',
       icon: <LuUsers2 className={'h-5 w-5'} />,
       redirect: '/booking/select-specialist',
-      selected: selectedSpecialist,
+      selected: specialist,
       renderSelected: () => {
         return (
-          selectedSpecialist && (
+          specialist && (
             <div className={'mt-2 flex items-center justify-between'}>
               <Avatar className={'h-12 w-12'}>
                 <AvatarImage
@@ -41,19 +39,19 @@ export const BookingList = () => {
                   style={{
                     background:
                       namePlateColors[
-                        nameToInitials(selectedSpecialist.name || '').slice(
+                        nameToInitials(specialist.name || '').slice(
                           0,
                           1
                         ) as string
                       ],
                   }}
                 >
-                  {nameToInitials(selectedSpecialist.name || '')}
+                  {nameToInitials(specialist.name || '')}
                 </AvatarFallback>
               </Avatar>
               <div className={'ml-4 flex w-full flex-col'}>
                 <h2 className={'text-base font-semibold tracking-tight'}>
-                  {selectedSpecialist.name}
+                  {specialist.name}
                 </h2>
                 <p className={'mb-2 text-sm italic'}>Barber</p>
                 <div className='flex items-center'>
@@ -88,14 +86,14 @@ export const BookingList = () => {
       name: 'Date and Time',
       icon: <LuCalendarCheck className={'h-5 w-5'} />,
       redirect: '/booking/select-date-time',
-      selected: selectedDate,
+      selected: date,
       renderSelected: () => {
         return (
-          selectedDate && (
+          date && (
             <div className={'mt-2 flex items-center justify-between'}>
               <div className={'flex items-center'}>
                 <div className={'font-semibold'}>Date:</div>
-                <div className={'ml-2'}>{format(selectedDate, 'PPpp')}</div>
+                <div className={'ml-2'}>{format(date, 'PPpp')}</div>
               </div>
             </div>
           )
@@ -107,6 +105,34 @@ export const BookingList = () => {
       name: 'Services',
       icon: <LuListChecks className={'h-5 w-5'} />,
       redirect: '/booking/select-services',
+      selected: !!services.length,
+      renderSelected: () => {
+        return (
+          <div className={'mt-4'}>
+            {services.map((service) => {
+              return (
+                <div key={service.id} className={'mb-2'}>
+                  <div className={'rounded-xl border p-2'}>
+                    <div className={'flex items-center justify-between'}>
+                      <div className={'flex flex-col items-start'}>
+                        <div className={'ml-2 font-semibold'}>
+                          {service.name}
+                        </div>
+                        <div className={'ml-2 font-semibold'}>
+                          price: ${service.price}
+                        </div>
+                        <div className={'ml-2 font-semibold'}>
+                          duration: {service.price} min
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )
+      },
     },
   ]
 

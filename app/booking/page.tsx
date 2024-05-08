@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { BookingList } from '@/app/booking/_components/booking-list'
+import { BookingMenu } from '@/app/booking/_components/booking-menu'
 
 const BookingPage = () => {
   return (
@@ -15,7 +15,7 @@ const BookingPage = () => {
         <CardDescription>Salon address</CardDescription>
       </CardHeader>
       <CardContent>
-        <BookingList />
+        <BookingMenu />
       </CardContent>
     </Card>
   )
