@@ -34,7 +34,7 @@ export const BookingSelectSpecialist = ({
       } else if (!hasDate) {
         router.push('/booking/select-date-time')
       } else {
-        router.push('/booking/confirm')
+        router.push('/booking/summary')
       }
     },
     [dispatch, router, hasServices, hasDate]

@@ -47,7 +47,7 @@ export const BookingRedirectButtons = () => {
       id: 4,
       show: hasSpecialist && hasDate && hasServices,
       text: 'Confirm',
-      redirect: '/booking/confirm',
+      redirect: '/booking/summary',
     },
   ]
 

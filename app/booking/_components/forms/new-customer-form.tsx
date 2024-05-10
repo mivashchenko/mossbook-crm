@@ -19,8 +19,15 @@ import { useState, useTransition } from 'react'
 import { cn } from '@/lib/utils'
 import { NewCustomerSchema } from '@/schemas'
 import { newCustomer } from '@/actions/new-customer'
+import { useAppSelector } from '@/lib/hooks'
+import { newAppointment } from '@/actions/new-appointment'
+import { addHours } from 'date-fns'
 
 export const NewCustomerForm = ({ className }: { className?: string }) => {
+  const { specialist, date, services } = useAppSelector(
+    (state) => state.newBooking
+  )
+
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
   const [isPending, startTransition] = useTransition()
@@ -37,8 +44,20 @@ export const NewCustomerForm = ({ className }: { className?: string }) => {
   const handleSubmit = (values: z.infer<typeof NewCustomerSchema>) => {
     startTransition(() => {
       newCustomer(values).then((data) => {
-        setError(data?.error)
-        setSuccess(data?.success)
+        if (!date || !specialist) {
+          setError('Invalid booking details')
+          return
+        }
+        return newAppointment({
+          start: new Date(date).toISOString() || new Date().toISOString(),
+          end: addHours(new Date(date || new Date()), 1).toISOString(),
+          customerId: data?.customer?.id || '',
+          employeeId: specialist?.id || '',
+          services: services.map((service) => service.id),
+        }).then((data) => {
+          setError(data?.error)
+          setSuccess(data?.success)
+        })
       })
     })
   }

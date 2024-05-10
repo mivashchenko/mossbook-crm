@@ -97,14 +97,6 @@ export const NewServiceSchema = z.object({
   ]),
 })
 
-export const NewBookingSchema = z.object({
-  date: z.string(),
-  time: z.string(),
-  specialistId: z.string(),
-  serviceId: z.string(),
-  userId: z.string(),
-})
-
 export const NewCustomerSchema = z.object({
   name: z.string().min(1, {
     message: 'Name is required',
@@ -115,4 +107,16 @@ export const NewCustomerSchema = z.object({
   phone: z.string().min(1, {
     message: 'Phone is required',
   }),
+})
+
+export const NewAppointmentSchema = z.object({
+  start: z.string().refine((dateStr) => !isNaN(Date.parse(dateStr)), {
+    message: 'Invalid date format',
+  }),
+  end: z.string().refine((dateStr) => !isNaN(Date.parse(dateStr)), {
+    message: 'Invalid date format',
+  }),
+  customerId: z.string(),
+  employeeId: z.string(),
+  services: z.string().array().min(1),
 })

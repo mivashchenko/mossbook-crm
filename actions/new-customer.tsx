@@ -15,7 +15,7 @@ export const newCustomer = async (
 
   const { email, name, phone } = validatedFields.data
 
-  await db.customer.create({
+  const newCustomer = await db.customer.create({
     data: {
       name,
       email,
@@ -23,5 +23,5 @@ export const newCustomer = async (
     },
   })
 
-  return { success: 'Thank you!' }
+  return { success: 'Thank you!', customer: newCustomer }
 }

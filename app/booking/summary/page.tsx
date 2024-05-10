@@ -8,6 +8,7 @@ const ConfirmPage = () => {
     <div className={'flex flex-col gap-4'}>
       <Salon backUrl={'/booking'} />
       <BookingSummary />
+
       <Card>
         <CardHeader>
           <CardTitle>Contact information</CardTitle>

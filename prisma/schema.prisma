@@ -47,6 +47,8 @@ model Employee {
   image         String?
   role          UserRole @default(USER)
 
+  appointments Appointment[]
+
   @@map("employees")
 }
 
@@ -108,16 +110,7 @@ model TwoFactorConfirmation {
   @@unique([userId])
 }
 
-model Service {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String?
-  price       Float
-  duration    Int
-  category    ServiceCategory
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
+
 
 model Customer {
   id          String    @id @default(cuid())
@@ -127,4 +120,35 @@ model Customer {
   image       String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  appointments Appointment[]
 }
+
+model Appointment {
+  id          String    @id @default(cuid())
+  customerId  String
+  employeeId  String
+  start       DateTime
+  end         DateTime
+  status      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  services   Service[]
+
+  customer  Customer @relation(fields: [customerId], references: [id])
+  employee  Employee @relation(fields: [employeeId], references: [id])
+}
+
+model Service {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  duration    Int
+  category    ServiceCategory
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  appointments Appointment[]
+}
+
