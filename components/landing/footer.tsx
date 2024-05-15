@@ -29,21 +29,21 @@ export default function Footer() {
               employee management.
             </div>
 
-            <div className='mt-5'>
-              <a
-                href='https://vercel.com/?utm_source=web3templates&utm_campaign=oss'
-                target='_blank'
-                rel='noopener'
-                className='relative block w-44'
-              >
-                <Image
-                  src='/img/vercel.svg'
-                  alt='Powered by Vercel'
-                  width='212'
-                  height='44'
-                />
-              </a>
-            </div>
+            {/*<div className='mt-5'>*/}
+            {/*  <a*/}
+            {/*    href='https://vercel.com/?utm_source=web3templates&utm_campaign=oss'*/}
+            {/*    target='_blank'*/}
+            {/*    rel='noopener'*/}
+            {/*    className='relative block w-44'*/}
+            {/*  >*/}
+            {/*    <Image*/}
+            {/*      src='/img/vercel.svg'*/}
+            {/*      alt='Powered by Vercel'*/}
+            {/*      width='212'*/}
+            {/*      height='44'*/}
+            {/*    />*/}
+            {/*  </a>*/}
+            {/*</div>*/}
           </div>
 
           <div>
@@ -107,19 +107,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='my-10 text-center text-sm text-gray-600 dark:text-gray-400'>
-          Copyright © {new Date().getFullYear()}. Made with ♥ by{' '}
-          <a href='https://web3templates.com/' target='_blank' rel='noopener'>
-            Web3Templates.
-          </a>{' '}
-          Illustrations from{' '}
-          <a href='https://www.glazestock.com/' target='_blank' rel='noopener '>
-            Glazestock
-          </a>
-        </div>
+        {/*<div className='my-10 text-center text-sm text-gray-600 dark:text-gray-400'>*/}
+        {/*  Copyright © {new Date().getFullYear()}. Made with ♥ by{' '}*/}
+        {/*  <a href='https://web3templates.com/' target='_blank' rel='noopener'>*/}
+        {/*    Web3Templates.*/}
+        {/*  </a>{' '}*/}
+        {/*  Illustrations from{' '}*/}
+        {/*  <a href='https://www.glazestock.com/' target='_blank' rel='noopener '>*/}
+        {/*    Glazestock*/}
+        {/*  </a>*/}
+        {/*</div>*/}
       </Container>
       {/* Do not remove this */}
-      <Backlink />
+      {/*<Backlink />*/}
     </div>
   )
 }
